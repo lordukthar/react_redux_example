@@ -1,8 +1,15 @@
 import getUsers from "../../components/library/Server";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ReactTable } from "react";
+
 
 const Users = () => {
   const [users, setUsers] = useState([]);
+
+  function jalla(i) {
+    console.log(i);
+  }
+
+ 
 
   useEffect(() => {
     async function fetchData() {
@@ -20,14 +27,24 @@ const Users = () => {
 
   return (
     <div>
-        <ul class="list-group">
+      <ul class="list-group">
         {users.map((person, i) => (
-          <li key={i} class="list-group-item list-group-item-primary"> {i}: {person}</li>
-          ))}
-        </ul>
-    
-      
+          <li
+            key={i}
+            class="list-group-item list-group-item-primary"
+            onClick={jalla(i)}
+            active
+          >
+            {" "}
+            {i}: {person}
+          </li>
+        ))}
+      </ul>
+
+   
     </div>
   );
 };
 export default Users;
+
+
