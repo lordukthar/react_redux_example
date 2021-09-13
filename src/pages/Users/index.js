@@ -20,19 +20,13 @@ const Users = () => {
 
   return (
     <div>
-      <React.Fragment>
-        Users
         <ul class="list-group">
-          <li class="list-group-item list-group-item-primary">List item 1</li>
-          <li class="list-group-item list-group-item-primary">List item 2</li>
-          <li class="list-group-item list-group-item-primary">List item 3</li>
+        {users.map((person, i) => (
+          <li key={i} class="list-group-item list-group-item-primary"> {i}: {person}</li>
+          ))}
         </ul>
-      </React.Fragment>
-      {users.map((person, i) => (
-        <li key={i}>
-          {i}: {person}
-        </li>
-      ))}
+    
+      
     </div>
   );
 };
