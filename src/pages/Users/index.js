@@ -1,23 +1,31 @@
 import getUsers from "../../components/library/Server";
-import React, { useState, useEffect, ReactTable } from "react";
-
+import React, { useState, useEffect } from "react";
+import { List, ListItem, ListItemText } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+//import changeUser from "../../reducer";
 
 const Users = () => {
+  const [names, setNames] = useState([]);
   const [users, setUsers] = useState([]);
+  const dispatch = useDispatch();
+  //const userReducer = useSelector((state) => state.userReducer);
 
-  function jalla(i) {
-    console.log(i);
+  function handleListItemClick(event, index) {
+    getIndex(index+1);
   }
 
- 
+  function getIndex(id) {
+    var us = users.find((u) => u.id === id);
+    dispatch({ type: "CHOOSE", user: us.name });
+  }
 
   useEffect(() => {
     async function fetchData() {
       try {
         const response = getUsers();
         const json = await response;
-        console.log("json" + JSON.stringify(json));
-        setUsers(json.map((it) => it.name));
+        setNames(json.map((it) => it.name));
+        setUsers(json);
       } catch (e) {
         console.error(e);
       }
@@ -27,24 +35,19 @@ const Users = () => {
 
   return (
     <div>
-      <ul class="list-group">
-        {users.map((person, i) => (
-          <li
-            key={i}
-            class="list-group-item list-group-item-primary"
-            onClick={jalla(i)}
-            active
-          >
-            {" "}
-            {i}: {person}
-          </li>
+      <List component="nav" aria-label="contacts">
+        {names.map((name, i) => (
+          <ListItem button key={i}>
+            <ListItemText
+              key={i}
+              inset
+              primary={name}
+              onClick={(event) => handleListItemClick(event, i)}
+            />
+          </ListItem>
         ))}
-      </ul>
-
-   
+      </List>
     </div>
   );
 };
 export default Users;
-
-
