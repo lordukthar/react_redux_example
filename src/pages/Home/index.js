@@ -1,7 +1,7 @@
 import React from "react";
 import Statement from "../../components/features/Statement";
 import { useDispatch, useSelector } from "react-redux";
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid } from "@mui/x-data-grid";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90 },
@@ -51,6 +51,21 @@ const rows = [
 
 export default function Home() {
   const counter = useSelector((state) => state.countReducer);
+
+  function myFunction(x, y, z) {
+    return "FGFHG";
+  }
+  let args = [0, 1, 2];
+
+  //Only for iterables
+  let dateFields = [1970, 0, 1];
+  let d = new Date(...dateFields);
+
+
+let parts = ['shoulders', 'knees'];
+let lyrics = ['head', ...parts, 'and', 'toes'];
+
+  console.log("XX: " + lyrics);
 
   return (
     <div style={{ height: 400, width: "100%" }}>
