@@ -11,12 +11,12 @@ const Users = () => {
   //const userReducer = useSelector((state) => state.userReducer);
 
   function handleListItemClick(event, index) {
-    getIndex(index+1);
+    getIndex(index + 1);
   }
 
   function getIndex(id) {
     var us = users.find((u) => u.id === id);
-    dispatch({ type: "CHOOSE", user: us.name });
+    dispatch({ type: "CHOOSE", user: us });
   }
 
   useEffect(() => {

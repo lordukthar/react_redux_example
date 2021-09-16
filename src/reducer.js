@@ -17,8 +17,41 @@ function countReducer(state = 0, action) {
 }
 
 const defaultUser = {
-  name: "Unknown",
+  name: "",
+  username: "",
+  email: "",
+  id: 0,
 };
+
+const ADD_USER = "ADD_USER";
+const CHANGE_USER = "CHANGE_USER";
+
+const defaultUsers = [
+  {
+    name: "",
+    username: "",
+    email: "",
+    id: 0,
+  },
+];
+
+function usersReducer(state = defaultUsers, action) {
+  console.log(action);
+  switch (action.type) {
+    case ADD_USER:
+      return [
+        ...state,
+        {
+          name: action.name,
+          username: action.username,
+          email: action.email,
+          id: action.id,
+        },
+      ];
+    default:
+      return state;
+  }
+}
 
 export function changeUser(user) {
   return {
@@ -28,9 +61,15 @@ export function changeUser(user) {
 }
 
 function userReducer(state = defaultUser, action) {
+  console.log("XXX" + JSON.stringify(action));
   switch (action.type) {
     case CHOOSE:
-      return { name: action.user };
+      return {
+        name: action.user.name,
+        username: action.user.username,
+        email: action.user.email,
+        id: action.user.id,
+      };
     default:
       return state;
   }
