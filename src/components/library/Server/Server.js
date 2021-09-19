@@ -3,7 +3,7 @@ const axios = require("axios");
 const instance = axios.create({
   // baseURL: 'https://jsonplaceholder.typicode.com/users/',
   timeout: 1000,
-  headers: { "X-Custom-Header": "foobar" },
+  headers: { "X-Custom-Header": "foobar", "set-cookie": "JALLA" },
 });
 
 export default function getUsers() {
@@ -16,8 +16,10 @@ export function getUser(id) {
   return instance
     .get("https://jsonplaceholder.typicode.com/users/" + id, {})
     .then(function (response) {
-      // handle success
+      console.log("response" + JSON.stringify(response));
+
       var a = response.data;
+
       console.log("response" + JSON.stringify(response));
       console.log("data:" + JSON.stringify(response.data));
       console.log(
