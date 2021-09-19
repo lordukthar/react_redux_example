@@ -3,7 +3,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Header from "../layouts/Header";
 import { Switcher } from "../components/features/Navigation";
 import HeaderMobile from "../layouts/Header/mobile";
-import Home from "../Home";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {

@@ -1,7 +1,7 @@
 import getUsers from "../../components/library/Server";
 import React, { useState, useEffect } from "react";
 import { List, ListItem, ListItemText } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 //import changeUser from "../../reducer";
 
 const Users = () => {
@@ -20,6 +20,7 @@ const Users = () => {
   }
 
   useEffect(() => {
+  
     async function fetchData() {
       try {
         const response = getUsers();
@@ -35,6 +36,18 @@ const Users = () => {
 
   return (
     <div>
+      <List component="nav" aria-label="contacts">
+        {names.map((name, i) => (
+          <ListItem button key={i}>
+            <ListItemText
+              key={i}
+              inset
+              primary={name}
+              onClick={(event) => handleListItemClick(event, i)}
+            />
+          </ListItem>
+        ))}
+      </List>
       <List component="nav" aria-label="contacts">
         {names.map((name, i) => (
           <ListItem button key={i}>

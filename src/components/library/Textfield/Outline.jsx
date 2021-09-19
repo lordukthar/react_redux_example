@@ -20,7 +20,7 @@ const Field = ({
         id={id}
         placeholder={placeholder}
         spellCheck="false"
-        aria-describedBy=" "
+        aria-describedby=" "
     />)
 }
 

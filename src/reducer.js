@@ -24,30 +24,29 @@ const defaultUser = {
 };
 
 const ADD_USER = "ADD_USER";
-const CHANGE_USER = "CHANGE_USER";
 
 const defaultUsers = [
   {
-    name: "",
-    username: "",
-    email: "",
-    id: 0,
+    name: "AJA",
+    username: "AJA_UA",
   },
 ];
 
 function usersReducer(state = defaultUsers, action) {
-  console.log(action);
+  console.log("usersReducer" + JSON.stringify(action));
   switch (action.type) {
     case ADD_USER:
-      return [
+      console.log("ADD_USER" + JSON.stringify(action.user));
+
+      var a = [
         ...state,
         {
-          name: action.name,
-          username: action.username,
-          email: action.email,
-          id: action.id,
+          name: action.user.name,
+          username: action.user.username,
         },
       ];
+      console.log("ADD_USER" + JSON.stringify(a));
+      return a;
     default:
       return state;
   }
@@ -61,7 +60,7 @@ export function changeUser(user) {
 }
 
 function userReducer(state = defaultUser, action) {
-  console.log("XXX" + JSON.stringify(action));
+  console.log("userReducer: " + JSON.stringify(action));
   switch (action.type) {
     case CHOOSE:
       return {
@@ -78,6 +77,7 @@ function userReducer(state = defaultUser, action) {
 const countApp = combineReducers({
   countReducer: countReducer,
   userReducer: userReducer,
+  usersReducer: usersReducer,
 });
 
 export default countApp;

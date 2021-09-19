@@ -2,8 +2,8 @@ import CounterPage from "./Counter";
 import HomePage from "./Home";
 import UserPage from "./User";
 import UsersPage from "./Users";
-import SalesPage from "./Sales";
+import AddUserPage from "./AddUser";
 import LoginPage from "./Login";
 
 export default HomePage;
-export { UserPage, UsersPage, SalesPage, CounterPage, LoginPage };
+export { UserPage, UsersPage, AddUserPage, CounterPage, LoginPage };

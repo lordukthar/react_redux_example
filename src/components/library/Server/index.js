@@ -1,2 +1,3 @@
-import getUsers from "./Server";
+import getUsers, { getUser } from "./Server";
 export default getUsers;
+export { getUser };

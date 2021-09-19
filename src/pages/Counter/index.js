@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import RequestButton from "../../components/features/Navigation/Links/Features/Menu/RequestButton";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const theme = {

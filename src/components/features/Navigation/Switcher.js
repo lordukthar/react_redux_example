@@ -4,7 +4,7 @@ import Home, {
     UserPage,
     UsersPage,
     CounterPage,
-    SalesPage,
+    AddUserPage,
     LoginPage
 } from "../../../pages"
 
@@ -20,8 +20,8 @@ const Switcher = () => (
         <Route path="/counter">
             <CounterPage />
         </Route>
-        <Route path="/sales">
-            <SalesPage />
+        <Route path="/add-user">
+            <AddUserPage />
         </Route>
         <Route path="/login">
             <LoginPage />
